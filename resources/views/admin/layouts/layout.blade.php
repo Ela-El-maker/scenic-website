@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+
     <title>Dashboard</title>
 
     <!-- General CSS Files -->
@@ -19,10 +21,12 @@
     <link rel="stylesheet" href="{{ asset('assets/css/plugins/bootstrap-timepicker.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/plugins/daterangepicker.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/plugins/select2.min.css') }}">
-
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/components.css') }}">
+
+
 </head>
 
 <body>
@@ -80,16 +84,66 @@
     <!-- Page Specific JS File -->
     <script src="{{ asset('assets/js/page/forms-advanced-forms.js') }}"></script>
 
-     <!--- Show Dynamic validation errors--->
-  <script>
-    @if (!empty($errors->all()))
-      @foreach ($errors->all() as $error)
-        // Display an error toast, with a title
-        toastr.error('{{$error}}')
-      @endforeach
-        
-    @endif
-  </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!--- Show Dynamic validation errors--->
+    <script>
+        @if (!empty($errors->all()))
+            @foreach ($errors->all() as $error)
+                // Display an error toast, with a title
+                toastr.error('{{ $error }}')
+            @endforeach
+        @endif
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            // CSRF Token
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            // Sweet alert
+            $('body').on('click', '.delete-item', function(e) {
+                e.preventDefault();
+                let deleteUrl = $(this).attr('href');
+                //console.log(deleteUrl);
+                Swal.fire({
+                    title: "Are you sure?",
+                    text: "You won't be able to revert this!",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Yes, delete it!"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        $.ajax({
+                            type: "DELETE",
+                            url: deleteUrl,
+                            success: function(data) {
+                                Swal.fire({
+                                    title: "Deleted!",
+                                    text: "Your file has been deleted.",
+                                    icon: "success"
+                                });
+                                window.location.reload();
+                            },
+                            error: function(xhr, status, error) {
+                                console.log(error);
+                            }
+                        })
+
+
+                    }
+                });
+            })
+        })
+    </script>
+
+
+    @stack('scripts')
 </body>
 
 </html>

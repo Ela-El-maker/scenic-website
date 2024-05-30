@@ -1,4 +1,4 @@
-<section class="home-section section-hero overlay slanted" id="home-section" style="">
+<section class="home-section section-hero overlay slanted" id="home-section" style="no-repeat scroll top center/cover">
 
     <div class="container">
         <div class="row align-items-center justify-content-center">

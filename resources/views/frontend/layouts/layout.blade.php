@@ -11,7 +11,11 @@
     <link rel="stylesheet" href="{{asset('frontend/assets/fonts/line-icons/style.css')}}">
 
     <!-- MAIN CSS -->
-    <link rel="stylesheet" href="{{asset('frontend/assets/css/style.css')}}">    
+    <link rel="stylesheet" href="{{asset('frontend/assets/css/style.css')}}"> 
+    
+    <link rel="stylesheet" href= "https://use.fontawesome.com/releases/v5.11.2/css/all.css" > 
+
+    <link rel= "stylesheet" href= "https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css" >
   </head>
   <body>
 
@@ -56,5 +60,6 @@
     <script src="{{asset('frontend/assets/js/jquery.animateNumber.min.js')}}"></script>
     
     <script src="{{asset('frontend/assets/js/custom.js')}}"></script>
+    @stack('scripts')
   </body>
 </html>

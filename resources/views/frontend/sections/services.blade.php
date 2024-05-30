@@ -7,66 +7,18 @@
             </div>
         </div>
         <div class="row">
+            @foreach ($services as $service)
             <div class="col-6 col-md-6 col-lg-4 mb-4 mb-lg-5">
 
                 <a href="service-single.html" class="block__16443 text-center d-block">
-                    <span class="custom-icon mx-auto"><span class="icon-line-tools d-block"></span></span>
-                    <h3>Graphic Design</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit facilis, pariatur harum labore
-                        aperiam assumenda.</p>
+                    <span class="custom-icon mx-auto"><span class="{{$service->service_icon}}"></span></span>
+                    <h3>{{$service->name}}</h3>
+                    <p>{{$service->description}}</p>
                 </a>
 
             </div>
-            <div class="col-6 col-md-6 col-lg-4 mb-4 mb-lg-5">
-
-                <a href="service-single.html" class="block__16443 text-center d-block">
-                    <span class="custom-icon mx-auto"><span class="icon-line-lightbulb d-block"></span></span>
-                    <h3>Marketing Strategy</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit facilis, pariatur harum labore
-                        aperiam assumenda.</p>
-                </a>
-
-            </div>
-            <div class="col-6 col-md-6 col-lg-4 mb-4 mb-lg-5">
-
-                <a href="service-single.html" class="block__16443 text-center d-block">
-                    <span class="custom-icon mx-auto"><span class="icon-line-laptop d-block"></span></span>
-                    <h3>Web Design</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit facilis, pariatur harum labore
-                        aperiam assumenda.</p>
-                </a>
-
-            </div>
-            <div class="col-6 col-md-6 col-lg-4 mb-4 mb-lg-5">
-
-                <a href="service-single.html" class="block__16443 text-center d-block">
-                    <span class="custom-icon mx-auto"><span class="icon-line-search d-block"></span></span>
-                    <h3>SEO</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit facilis, pariatur harum labore
-                        aperiam assumenda.</p>
-                </a>
-
-            </div>
-            <div class="col-6 col-md-6 col-lg-4 mb-4 mb-lg-5">
-
-                <a href="service-single.html" class="block__16443 text-center d-block">
-                    <span class="custom-icon mx-auto"><span class="icon-line-presentation d-block"></span></span>
-                    <h3>Market Leading </h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit facilis, pariatur harum labore
-                        aperiam assumenda.</p>
-                </a>
-
-            </div>
-            <div class="col-6 col-md-6 col-lg-4 mb-4 mb-lg-5">
-
-                <a href="service-single.html" class="block__16443 text-center d-block">
-                    <span class="custom-icon mx-auto"><span class="icon-line-ribbon d-block"></span></span>
-                    <h3>Pixel Perfect Design</h3>
-                    <p class="d-sm-block">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit facilis,
-                        pariatur harum labore aperiam assumenda.</p>
-                </a>
-
-            </div>
+            @endforeach
+            
         </div>
 
         <div class="row">
