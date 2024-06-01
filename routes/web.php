@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AboutController;
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\HeroController;
 use App\Http\Controllers\Admin\ProfileController;
@@ -80,4 +81,7 @@ Route::group([
     Route::resource('hero', HeroController::class);
     Route::resource('service', ServiceController::class);
     Route::resource('about', AboutController::class);
+    
+    /*** Category Route */
+    Route::resource('category', CategoryController::class);
 });
