@@ -53,12 +53,11 @@
               
               <div class="row mb-5 pt-0 site-section">
                 <div class="col-md-6 align-self-center">
-                  <h3 class="section-title-sub text-primary">About Us</h3>
-                  <h2 class="section-title mb-4">Who Are You Guys</h2>
+                  <h3 class="section-title-sub text-primary">{{$about->title}}</h3>
+                  <h2 class="section-title mb-4">{{$about->sub_title}}</h2>
       
-                  <p>Soluta quasi cum delectus eum facilis recusandae nesciunt molestias accusantium libero dolores repellat id in dolorem laborum ad modi qui at quas dolorum voluptatem voluptatum repudiandae.</p>
-                  <p>Soluta quasi cum delectus eum facilis recusandae nesciunt molestias accusantium libero dolores repellat id in dolorem laborum ad modi qui at quas dolorum voluptatem voluptatum repudiandae.</p>
-                  <p class="mt-4"><a href="#" class="spepcial_link">Read more about us</a></p>
+                  <p>{!!$about->description!!}</p>
+                  {{-- <p class="mt-4"><a href="#" class="spepcial_link">Read more about us</a></p> --}}
                 </div>
                 <div class="col-md-5 ml-auto img-overlap">
                   <div class="img-1"><img src="images/sq_img_6.jpg" alt="Image" class="img-fluid img-shadow"></div>

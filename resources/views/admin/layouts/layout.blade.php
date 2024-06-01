@@ -73,6 +73,8 @@
     <script src="{{ asset('assets/js/plugins/bootstrap-timepicker.min.js') }}"></script>
     <script src="{{ asset('assets/js/plugins/daterangepicker.js') }}"></script>
     <script src="{{ asset('assets/js/plugins/select2.full.min.js') }}"></script>
+    <script src="{{ asset('assets/js/plugins/summernote-bs4.js') }}"></script>
+    <script src="{{ asset('assets/js/plugins/jquery.uploadPreview.min.js') }}"></script>
 
 
     <!-- Template JS File -->
