@@ -3,9 +3,16 @@
 use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\ExperienceController;
+use App\Http\Controllers\Admin\FeedbacksController;
+use App\Http\Controllers\Admin\FeedbackTitleController;
 use App\Http\Controllers\Admin\HeroController;
+use App\Http\Controllers\Admin\PortfolioItemController;
+use App\Http\Controllers\Admin\PortfolioSectionSettingController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\Admin\ServiceSectionSettingController;
+use App\Http\Controllers\Admin\ServiceSpecificController;
 use App\Http\Controllers\Frontend\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -76,12 +83,38 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
+Route::get('portfolio-details/{id}', [HomeController::class, 'showPortfolio'])->name('show.portfolio');
+
+Route::get('service-details/{id}', [HomeController::class, 'showService'])->name('show.service');
+
+
 Route::group([
     'middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], function(){
     Route::resource('hero', HeroController::class);
-    Route::resource('service', ServiceController::class);
+    
     Route::resource('about', AboutController::class);
     
     /*** Category Route */
     Route::resource('category', CategoryController::class);
+
+    /*** Portfolio Item Route */
+    Route::resource('portfolio-item', PortfolioItemController::class);
+
+    /**** Portfolio Section Setting Route */
+    Route::resource('portfolio-section-setting', PortfolioSectionSettingController::class);
+
+    /**** Service Section Setting Route */
+    Route::resource('service', ServiceController::class);
+    Route::resource('service-specific', ServiceSpecificController::class);
+    Route::resource('service-section-setting', ServiceSectionSettingController::class);
+
+    Route::resource('experience', ExperienceController::class);
+
+    /***Feedback Section Title */
+
+    Route::resource('feedback-title', FeedbackTitleController::class);
+    Route::resource('feedback-section', FeedbacksController::class);
+    
+
+
 });

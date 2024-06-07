@@ -17,6 +17,9 @@
     @include('frontend.sections.feature')
 
 
+    @include('frontend.sections.testimonials');
+    
+
     <!-- Blog-Area-Start -->
     @include('frontend.sections.blog')
 

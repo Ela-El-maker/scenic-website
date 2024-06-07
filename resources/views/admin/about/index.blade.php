@@ -26,21 +26,24 @@
                                 @csrf
                                 @method('PUT')
 
+                                <!-- First Image -->
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">First Image</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <div id="image-preview" class="image-preview">
-                                            <label for="image-upload" id="image-label">Choose File</label>
-                                            <input type="file" name="image_1" id="image-upload" />
+                                        <div id="image-preview-1" class="image-preview">
+                                            <label for="image-upload-1" id="image-label-1">Choose File</label>
+                                            <input type="file" name="image_1" id="image-upload-1" class="image-input" />
                                         </div>
                                     </div>
                                 </div>
+
+                                <!-- Second Image -->
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Second Image</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <div id="image-preview" class="image-preview">
-                                            <label for="image-upload" id="image-label">Choose File</label>
-                                            <input type="file" name="image_2" id="image-upload" />
+                                        <div id="image-preview-2" class="image-preview">
+                                            <label for="image-upload-2" id="image-label-2">Choose File</label>
+                                            <input type="file" name="image_2" id="image-upload-2" class="image-input" />
                                         </div>
                                     </div>
                                 </div>
@@ -96,11 +99,35 @@
 @push('scripts')
     <script>
         $(document).ready(function() {
-            $('#image-preview').css({
-                'background-image': 'url("{{ asset($about->image) }}")',
+            // Set the initial background images for the preview boxes
+            $('#image-preview-1').css({
+                'background-image': 'url("{{ asset($about->image_1) }}")',
                 'background-size': 'cover',
                 'background-position': 'center center',
-            })
+            });
+            $('#image-preview-2').css({
+                'background-image': 'url("{{ asset($about->image_2) }}")',
+                'background-size': 'cover',
+                'background-position': 'center center',
+            });
+
+            // Initialize uploadPreview for each image input
+            $.uploadPreview({
+                input_field: "#image-upload-1", // First image input
+                preview_box: "#image-preview-1", // Corresponding preview box
+                label_field: "#image-label-1", // Corresponding label
+                success_callback: function() {
+                    // Nothing needed here as the image is already handled by uploadPreview
+                }
+            });
+            $.uploadPreview({
+                input_field: "#image-upload-2", // First image input
+                preview_box: "#image-preview-2", // Corresponding preview box
+                label_field: "#image-label-2", // Corresponding label
+                success_callback: function() {
+                    // Nothing needed here as the image is already handled by uploadPreview
+                }
+            });
         });
     </script>
 @endpush

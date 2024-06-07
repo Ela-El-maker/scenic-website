@@ -3,11 +3,12 @@
     <div class="container">
         <div class="row align-items-center justify-content-center">
             <div class="col-md-8 text-center">
-                <h1>{{$hero->title}}</h1>
+                <h1>{{ $hero->title }}</h1>
                 <div class="mx-auto w-75">
-                    <p>{{$hero->sub_title}}</p>
+                    <p>{{ $hero->sub_title }}</p>
                 </div>
-                <p class="mt-5"><a href="{{$hero->btn_url}}" class="btn btn-outline-white btn-md ">{{$hero->btn_text}}</a></p>
+                <p class="mt-5"><a href="{{ $hero->btn_url }}"
+                        class="btn btn-outline-white btn-md ">{{ $hero->btn_text }}</a></p>
             </div>
         </div>
     </div>
