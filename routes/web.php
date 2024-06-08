@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\Admin\AboutController;
+use App\Http\Controllers\Admin\BlogCategoryController;
+use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\Admin\BlogSectionSettingController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ExperienceController;
@@ -87,6 +90,12 @@ Route::get('portfolio-details/{id}', [HomeController::class, 'showPortfolio'])->
 
 Route::get('service-details/{id}', [HomeController::class, 'showService'])->name('show.service');
 
+Route::get('blog-details/{id}', [HomeController::class, 'showBlog'])->name('show.blog');
+
+
+Route::get('blogs', [HomeController::class, 'blog'])->name('blog');
+
+Route::post('contact', [HomeController::class, 'contact'])->name('contact');
 
 Route::group([
     'middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], function(){
@@ -114,6 +123,11 @@ Route::group([
 
     Route::resource('feedback-title', FeedbackTitleController::class);
     Route::resource('feedback-section', FeedbacksController::class);
+
+    /*** Blog Category Route */
+    Route::resource('blog-category', BlogCategoryController::class);
+    Route::resource('blog-section-setting', BlogSectionSettingController::class);
+    Route::resource('blog', BlogController::class);
     
 
 
