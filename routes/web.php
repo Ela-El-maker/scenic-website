@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ExperienceController;
 use App\Http\Controllers\Admin\FeedbacksController;
 use App\Http\Controllers\Admin\FeedbackTitleController;
+use App\Http\Controllers\Admin\FooterProductsController;
 use App\Http\Controllers\Admin\HeroController;
 use App\Http\Controllers\Admin\PortfolioItemController;
 use App\Http\Controllers\Admin\PortfolioSectionSettingController;
@@ -129,6 +130,8 @@ Route::group([
     Route::resource('blog-section-setting', BlogSectionSettingController::class);
     Route::resource('blog', BlogController::class);
     
-
+    /****Footers Routes */
+    Route::resource('footer-products', FooterProductsController::class);
+    
 
 });
