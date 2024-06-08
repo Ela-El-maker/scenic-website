@@ -130,7 +130,7 @@
                 <ul class="dropdown-menu" style="display: none;">
                     <li><a class="nav-link" href="{{ route('admin.footer-products.index') }}">Footer Products</a></li>
 
-                    <li><a class="nav-link" href="{{ route('admin.blog-section-setting.index') }}">Blogs Title</a>
+                    <li><a class="nav-link" href="{{ route('admin.footer-company.index') }}">Footer Company</a>
                     </li>
                     <li><a class="nav-link" href="{{ route('admin.blog.index') }}">Our Blogs</a></li>
 

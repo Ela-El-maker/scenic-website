@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\DataTables\FooterCompanyInfoDataTable;
+
 use App\Http\Controllers\Controller;
+use App\Models\FooterCompanyInfo;
+
 use Illuminate\Http\Request;
 
 class FooterCompanyInfoController extends Controller
@@ -10,9 +14,10 @@ class FooterCompanyInfoController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(FooterCompanyInfoDataTable $dataTable)
     {
         //
+        return $dataTable->render('admin.footer-company-info.index');
     }
 
     /**
@@ -21,6 +26,7 @@ class FooterCompanyInfoController extends Controller
     public function create()
     {
         //
+        return view('admin.footer-company-info.create');
     }
 
     /**
@@ -29,6 +35,26 @@ class FooterCompanyInfoController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate(
+            [
+                'name' => ['required', 'max:100'],
+                'url' => ['required', 'url'],
+                
+            ]
+        );
+
+        $footerItem = new FooterCompanyInfo();
+
+        
+        $footerItem->name = $request->name;
+        $footerItem->url = $request->url;
+        
+
+        $footerItem->save();
+
+
+        toastr()->success('Footer Company Created Successfully!', 'Congrats');
+        return redirect()->route('admin.footer-company.index');
     }
 
     /**
@@ -45,6 +71,8 @@ class FooterCompanyInfoController extends Controller
     public function edit(string $id)
     {
         //
+        $footerCompany = FooterCompanyInfo::findorfail($id);
+        return view('admin.footer-company-info.edit', compact('footerCompany'));
     }
 
     /**
@@ -53,6 +81,26 @@ class FooterCompanyInfoController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        $request->validate(
+            [
+                'name' => ['required', 'max:100'],
+                'url' => ['required', 'url'],
+                
+            ]
+        );
+
+        $footerItem =  FooterCompanyInfo::findorfail($id);
+
+        
+        $footerItem->name = $request->name;
+        $footerItem->url = $request->url;
+        
+
+        $footerItem->save();
+
+
+        toastr()->success('Footer Company Updated Successfully!', 'Congrats');
+        return redirect()->route('admin.footer-company.index');
     }
 
     /**
@@ -61,5 +109,7 @@ class FooterCompanyInfoController extends Controller
     public function destroy(string $id)
     {
         //
+        $footerCompany = FooterCompanyInfo::findorfail($id);
+        $footerCompany->delete();
     }
 }

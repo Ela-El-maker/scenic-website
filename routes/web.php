@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ExperienceController;
 use App\Http\Controllers\Admin\FeedbacksController;
 use App\Http\Controllers\Admin\FeedbackTitleController;
+use App\Http\Controllers\Admin\FooterCompanyInfoController;
 use App\Http\Controllers\Admin\FooterProductsController;
 use App\Http\Controllers\Admin\HeroController;
 use App\Http\Controllers\Admin\PortfolioItemController;
@@ -132,6 +133,7 @@ Route::group([
     
     /****Footers Routes */
     Route::resource('footer-products', FooterProductsController::class);
+    Route::resource('footer-company', FooterCompanyInfoController::class);
     
 
 });
