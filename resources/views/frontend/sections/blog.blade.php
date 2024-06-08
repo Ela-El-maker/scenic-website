@@ -7,63 +7,25 @@
             </div>
         </div>
         <div class="row">
+            @foreach ($blogs as $blog)
             <div class="col-md-6 col-lg-6 mb-4">
                 <div class="block__86547 d-block d-xl-flex align-items-stretch">
-                    <figure class="img" style="background-image: url('images/sq_img_1.jpg')">
+                    <figure class="img" style="background-image: url('{{asset($blog->image)}}')">
                     </figure>
                     <div class="h-100">
-                        <h3 class="mb-4"><a href="#">Undefined: The Third Boolean Values</a></h3>
+                        <h3 class="mb-4"><a href="{{route('show.blog', $blog->id)}}">{{$blog->title}}</a></h3>
+                        <div class="desc">
+                            <p>{!! Str::limit(strip_tags($blog->description), 100) !!}</p>
+                        </div>
                         <div class="block__27192 d-flex pt-1 border-top">
-                            <a href="#"><span class="icon-person"></span> Jacob Smith</a>
-                            <a href="#"><span class="icon-calendar-o"></span> 7 Apr 2019</a>
-                            <a href="#"><span class="icon-chat"></span> 2</a>
+                            <a href="{{route('show.blog', $blog->id)}}"><span class="icon-list"></span> {{$blog->getCategory->name}}</a>
+                            <a href="{{route('show.blog', $blog->id)}}"><span class="icon-calendar-o"> {{date('d M, Y | H:m', strtotime($blog->created_at))}}</span></a>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-6 mb-4">
-                <div class="block__86547 d-block d-xl-flex align-items-stretch">
-                    <figure class="img" style="background-image: url('images/sq_img_2.jpg')">
-                    </figure>
-                    <div class="h-100">
-                        <h3 class="mb-4"><a href="#">Where Do You Learn HTML & CSS in 2020?</a></h3>
-                        <div class="block__27192 d-flex pt-1 border-top">
-                            <a href="#"><span class="icon-person"></span> Jacob Smith</a>
-                            <a href="#"><span class="icon-calendar-o"></span> 7 Apr 2019</a>
-                            <a href="#"><span class="icon-chat"></span> 2</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-6 mb-4">
-                <div class="block__86547 d-block d-xl-flex align-items-stretch">
-                    <figure class="img" style="background-image: url('images/sq_img_4.jpg')">
-                    </figure>
-                    <div class="h-100">
-                        <h3 class="mb-4"><a href="#">Where Do You Learn HTML & CSS in 2020?</a></h3>
-                        <div class="block__27192 d-flex pt-1 border-top">
-                            <a href="#"><span class="icon-person"></span> Jacob Smith</a>
-                            <a href="#"><span class="icon-calendar-o"></span> 7 Apr 2019</a>
-                            <a href="#"><span class="icon-chat"></span> 2</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-6 mb-4">
-                <div class="block__86547 d-block d-xl-flex align-items-stretch">
-                    <figure class="img" style="background-image: url('images/sq_img_5.jpg')">
-                    </figure>
-                    <div class="h-100">
-                        <h3 class="mb-4"><a href="#">Undefined: The Third Boolean Value</a></h3>
-                        <div class="block__27192 d-flex pt-1 border-top">
-                            <a href="#"><span class="icon-person"></span> Jacob Smith</a>
-                            <a href="#"><span class="icon-calendar-o"></span> 7 Apr 2019</a>
-                            <a href="#"><span class="icon-chat"></span> 2</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
+            
         </div>
     </div>
 </section>
