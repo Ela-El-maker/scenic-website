@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\About;
+use App\Models\Blog;
+use App\Models\BlogSectionSetting;
 use App\Models\Category;
 use App\Models\Experience;
 use App\Models\Feedbacks;
@@ -31,8 +33,10 @@ class HomeController extends Controller
         $experience = Experience::first();
         // Limit feedbacks to 2
         // $feedbacks = Feedbacks::take(2)->get();
-         // Limit feedbacks to 2 random feedbacks
-         $feedbacks = Feedbacks::inRandomOrder()->take(2)->get();
+        // Limit feedbacks to 2 random feedbacks
+        $feedbacks = Feedbacks::inRandomOrder()->take(2)->get();
+        $blogs = Blog::latest()->inRandomOrder()->take(4)->get();
+        $blogTitle = BlogSectionSetting::first();
         return view(
             'frontend.home',
             compact(
@@ -44,9 +48,11 @@ class HomeController extends Controller
                 'portfolioItems',
                 'serviceTitle',
                 'experience',
-                'feedbacks'
-                
-            
+                'feedbacks',
+                'blogs',
+                'blogTitle',
+
+
             )
         );
     }
@@ -69,4 +75,17 @@ class HomeController extends Controller
     //     $feedbacks = Feedbacks::all()->take(2); // Fetch and limit to 2 testimonials
     //     return view('frontend.sections.testimonials', compact('feedbacks','feedbackTitle'));
     // }
+    public function showBlog($id)
+    {
+        $blog = Blog::findorfail($id);
+        $previousPost = Blog::where('id', '<', $blog->id)->orderBy('id', 'desc')->first();
+        $nextPost = Blog::where('id', '>', $blog->id)->orderBy('id', 'asc')->first();
+
+        return view('frontend.blog-details', compact('blog', 'previousPost', 'nextPost'));
+    }
+    public function  blog()
+    {
+        $blogs = Blog::latest()->paginate(6);
+        return view('frontend.blog', compact('blogs'));
+    }
 }
