@@ -132,7 +132,7 @@
 
                     <li><a class="nav-link" href="{{ route('admin.footer-company.index') }}">Footer Company</a>
                     </li>
-                    <li><a class="nav-link" href="{{ route('admin.blog.index') }}">Our Blogs</a></li>
+                    <li><a class="nav-link" href="{{ route('admin.footer-support.index') }}">Footer Support</a></li>
 
                 </ul>
             </li>

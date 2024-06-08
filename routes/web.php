@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\FeedbacksController;
 use App\Http\Controllers\Admin\FeedbackTitleController;
 use App\Http\Controllers\Admin\FooterCompanyInfoController;
 use App\Http\Controllers\Admin\FooterProductsController;
+use App\Http\Controllers\Admin\FooterSupportController;
 use App\Http\Controllers\Admin\HeroController;
 use App\Http\Controllers\Admin\PortfolioItemController;
 use App\Http\Controllers\Admin\PortfolioSectionSettingController;
@@ -134,6 +135,8 @@ Route::group([
     /****Footers Routes */
     Route::resource('footer-products', FooterProductsController::class);
     Route::resource('footer-company', FooterCompanyInfoController::class);
+    Route::resource('footer-support', FooterSupportController::class);
+
     
 
 });

@@ -2,22 +2,20 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\DataTables\FooterProductsDataTable;
-
+use App\DataTables\FooterSupportDataTable;
 use App\Http\Controllers\Controller;
-use App\Models\FooterProducts;
-
+use App\Models\FooterSupport;
 use Illuminate\Http\Request;
 
-class FooterProductsController extends Controller
+class FooterSupportController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(FooterProductsDataTable $dataTable)
+    public function index(FooterSupportDataTable $dataTable)
     {
         //
-        return $dataTable->render('admin.footer-products.index');
+        return $dataTable->render('admin.footer-support.index');
     }
 
     /**
@@ -26,7 +24,7 @@ class FooterProductsController extends Controller
     public function create()
     {
         //
-        return view('admin.footer-products.create');
+        return view('admin.footer-support.create');
     }
 
     /**
@@ -43,7 +41,7 @@ class FooterProductsController extends Controller
             ]
         );
 
-        $footerItem = new FooterProducts();
+        $footerItem = new FooterSupport();
 
         
         $footerItem->name = $request->name;
@@ -53,8 +51,8 @@ class FooterProductsController extends Controller
         $footerItem->save();
 
 
-        toastr()->success('Footer Products Created Successfully!', 'Congrats');
-        return redirect()->route('admin.footer-products.index');
+        toastr()->success('Footer Support Created Successfully!', 'Congrats');
+        return redirect()->route('admin.footer-support.index');
     }
 
     /**
@@ -71,8 +69,8 @@ class FooterProductsController extends Controller
     public function edit(string $id)
     {
         //
-        $footerProducts = FooterProducts::findorfail($id);
-        return view('admin.footer-products.edit', compact('footerProducts'));
+        $footerSupport = FooterSupport::findorfail($id);
+        return view('admin.footer-support.edit', compact('footerSupport'));
     }
 
     /**
@@ -89,7 +87,7 @@ class FooterProductsController extends Controller
             ]
         );
 
-        $footerItem =  FooterProducts::findorfail($id);
+        $footerItem =  FooterSupport::findorfail($id);
 
         
         $footerItem->name = $request->name;
@@ -99,8 +97,8 @@ class FooterProductsController extends Controller
         $footerItem->save();
 
 
-        toastr()->success('Footer Products Updated Successfully!', 'Congrats');
-        return redirect()->route('admin.footer-products.index');
+        toastr()->success('Footer Support Updated Successfully!', 'Congrats');
+        return redirect()->route('admin.footer-support.index');
     }
 
     /**
@@ -109,7 +107,7 @@ class FooterProductsController extends Controller
     public function destroy(string $id)
     {
         //
-        $footerProducts = FooterProducts::findorfail($id);
+        $footerProducts = FooterSupport::findorfail($id);
         $footerProducts->delete();
     }
 }
