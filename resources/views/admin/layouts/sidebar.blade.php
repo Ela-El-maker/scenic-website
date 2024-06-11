@@ -133,9 +133,12 @@
                     <li><a class="nav-link" href="{{ route('admin.footer-company.index') }}">Footer Company</a>
                     </li>
                     <li><a class="nav-link" href="{{ route('admin.footer-support.index') }}">Footer Support</a></li>
-
+                    <li><a class="nav-link" href="{{ route('admin.footer-social.index') }}">Footer Social</a></li>
                 </ul>
             </li>
+
+            <li class="menu-header">Settings</li>
+        <li class="{{setSidebarActive(['admin.settings.*'])}}"><a class="nav-link" href="{{route('admin.settings.index')}}"><i class="fas fa-fire"></i>Settings</a></li>
             {{-- <li><a class="nav-link" href="blank.html"><i class="far fa-square"></i> <span>Blank Page</span></a></li>
          --}}
         </ul>

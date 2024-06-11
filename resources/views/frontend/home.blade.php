@@ -7,6 +7,9 @@
     <!-- ABOUT US -->
     @include('frontend.sections.about')
 
+    <!-- PROJECTS -->
+    @include('frontend.sections.projects')
+
     <!-- SERVICES -->
     @include('frontend.sections.services')
 

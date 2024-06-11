@@ -1,3 +1,7 @@
+@php
+  
+@endphp
+
 <!doctype html>
 <html lang="en">
   <head>

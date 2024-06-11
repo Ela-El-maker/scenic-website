@@ -2,11 +2,11 @@
 <header class="site-navbar mt-3" id="top">
     <div class="container-fluid">
       <div class="row align-items-center">
-        <div class="site-logo col-6"><a href="index.html">Scenic</a></div>
+        <div class="site-logo col-6"><a href="{{url('/')}}">Scenic</a></div>
 
         <nav class="mx-auto site-navigation">
           <ul class="site-menu js-clone-nav d-none d-lg-block">
-            <li><a href="index.html" class="nav-link active">Home</a></li>
+            <li><a href="{{url('/')}}" class="nav-link active">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="portfolio.html">Portfolio</a></li>
             <li class="has-children">

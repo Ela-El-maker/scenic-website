@@ -43,3 +43,17 @@ function deleteFileIfExists($filePath){
         throw $e;
     }
 }
+
+
+/**** Set sidebar active */
+function setSidebarActive($route){
+    if(is_array($route)){
+        foreach($route as $r)
+        {
+            if(request()->routeIs($r))
+            {
+                return 'active';
+            }
+        }
+    }
+}
