@@ -2,8 +2,8 @@
 <div class="container">
     <div class="row mb-5">
         <div class="col-12 text-center" data-aos="fade">
-            <h3 class="section-title-sub text-primary">Title</h3>
-            <h2 class="section-title mb-3">Sub Title</h2>
+            <h3 class="section-title-sub text-primary">{{$projectTitle->title}}</h3>
+            <h2 class="section-title mb-3">{!!$projectTitle->sub_title!!}</h2>
         </div>
     </div>
     <div class="row pb-0 border-top pt-5 block__19738 section-counter">

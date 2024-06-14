@@ -18,6 +18,7 @@ use App\Http\Controllers\Admin\HeroController;
 use App\Http\Controllers\Admin\PortfolioItemController;
 use App\Http\Controllers\Admin\PortfolioSectionSettingController;
 use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\Admin\ProjectSectionTitleController;
 use App\Http\Controllers\Admin\SEOSettingController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\ServiceSectionSettingController;
@@ -119,6 +120,9 @@ Route::group([
 
     /**** Portfolio Section Setting Route */
     Route::resource('portfolio-section-setting', PortfolioSectionSettingController::class);
+
+     /**** Projects Section Setting Route */
+     Route::resource('projects-section-setting', ProjectSectionTitleController::class);
 
     /**** Service Section Setting Route */
     Route::resource('service', ServiceController::class);

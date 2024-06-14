@@ -13,6 +13,7 @@ use App\Models\FeedbackTitle;
 use App\Models\Hero;
 use App\Models\PortfolioItem;
 use App\Models\PortfolioSectionSetting;
+use App\Models\ProjectSectionTitle;
 use App\Models\Service;
 use App\Models\ServiceSectionSetting;
 use App\Models\ServiceSpecific;
@@ -37,6 +38,7 @@ class HomeController extends Controller
         $feedbacks = Feedbacks::inRandomOrder()->take(2)->get();
         $blogs = Blog::latest()->inRandomOrder()->take(4)->get();
         $blogTitle = BlogSectionSetting::first();
+        $projectTitle = ProjectSectionTitle::first();
         return view(
             'frontend.home',
             compact(
@@ -51,6 +53,7 @@ class HomeController extends Controller
                 'feedbacks',
                 'blogs',
                 'blogTitle',
+                'projectTitle',
 
 
             )

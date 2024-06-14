@@ -74,6 +74,18 @@
 
                 </ul>
             </li>
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
+                    <span>Projects</span></a>
+                <ul class="dropdown-menu" style="display: none;">
+                    <li><a class="nav-link" href="{{route('admin.projects-section-setting.index')}}">Projects Section title</a></li>
+                    <li><a class="nav-link" href="">Projects </a>
+                    </li>
+
+
+
+                </ul>
+            </li>
             {{-- <ul class="dropdown-menu" style="display: none;">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
 
