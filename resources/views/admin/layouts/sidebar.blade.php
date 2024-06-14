@@ -79,11 +79,8 @@
                     <span>Projects</span></a>
                 <ul class="dropdown-menu" style="display: none;">
                     <li><a class="nav-link" href="{{route('admin.projects-section-setting.index')}}">Projects Section title</a></li>
-                    <li><a class="nav-link" href="">Projects </a>
+                    <li><a class="nav-link" href="{{route('admin.project.index')}}">Projects </a>
                     </li>
-
-
-
                 </ul>
             </li>
             {{-- <ul class="dropdown-menu" style="display: none;">

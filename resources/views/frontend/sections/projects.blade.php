@@ -8,15 +8,20 @@
     </div>
     <div class="row pb-0 border-top pt-5 block__19738 section-counter">
 
-        <div class="col-6 col-md-6 col-lg-3 mb-5 mb-lg-0">
-            <div class="d-flex align-items-center justify-content-center mb-2">
-                <span class="icon-line-mobile mr-3"></span>
-                <strong class="number" data-number="2393">0</strong>
-            </div>
-            <span class="caption">Completed Projects</span>
-        </div>
+        @foreach ($projects as $item)
+           <div class="col-6 col-md-6 col-lg-3 mb-5 mb-lg-0">
+            <a href="{{$item->url}}">
+                <div class="d-flex align-items-center justify-content-center mb-2">
+                    <span style="height: 100px width:100px" class="{{$item->icon}} mr-3"></span>
+                    <strong class="number" data-number="{{$item->total_number}}">0</strong>
+                </div>
+            </a>
+            <span class="caption">{{$item->name}}</span>
+        </div> 
+        @endforeach
+        
 
-        <div class="col-6 col-md-6 col-lg-3 mb-5 mb-lg-0">
+        {{-- <div class="col-6 col-md-6 col-lg-3 mb-5 mb-lg-0">
             <div class="d-flex align-items-center justify-content-center mb-2">
                 <span class="icon-line-lightbulb mr-3"></span>
                 <strong class="number" data-number="54">0</strong>
@@ -38,7 +43,7 @@
                 <strong class="number" data-number="550">0</strong>
             </div>
             <span class="caption">Line of Codes</span>
-        </div>
+        </div> --}}
 
 
     </div>
