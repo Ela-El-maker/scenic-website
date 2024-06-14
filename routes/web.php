@@ -13,13 +13,16 @@ use App\Http\Controllers\Admin\FooterCompanyInfoController;
 use App\Http\Controllers\Admin\FooterProductsController;
 use App\Http\Controllers\Admin\FooterSocialController;
 use App\Http\Controllers\Admin\FooterSupportController;
+use App\Http\Controllers\Admin\GeneralSettingController;
 use App\Http\Controllers\Admin\HeroController;
 use App\Http\Controllers\Admin\PortfolioItemController;
 use App\Http\Controllers\Admin\PortfolioSectionSettingController;
 use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\Admin\SEOSettingController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\ServiceSectionSettingController;
 use App\Http\Controllers\Admin\ServiceSpecificController;
+use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Frontend\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -34,7 +37,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',[HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/service', function () {
     return view('frontend.service');
@@ -80,7 +83,7 @@ Route::get('/about', function () {
     return view('frontend.about');
 });
 
-Route::get('/dashboard',[DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -88,7 +91,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
 Route::get('portfolio-details/{id}', [HomeController::class, 'showPortfolio'])->name('show.portfolio');
 
@@ -102,11 +105,12 @@ Route::get('blogs', [HomeController::class, 'blog'])->name('blog');
 Route::post('contact', [HomeController::class, 'contact'])->name('contact');
 
 Route::group([
-    'middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], function(){
+    'middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'
+], function () {
     Route::resource('hero', HeroController::class);
-    
+
     Route::resource('about', AboutController::class);
-    
+
     /*** Category Route */
     Route::resource('category', CategoryController::class);
 
@@ -132,7 +136,7 @@ Route::group([
     Route::resource('blog-category', BlogCategoryController::class);
     Route::resource('blog-section-setting', BlogSectionSettingController::class);
     Route::resource('blog', BlogController::class);
-    
+
     /****Footers Routes */
     Route::resource('footer-products', FooterProductsController::class);
     Route::resource('footer-company', FooterCompanyInfoController::class);
@@ -140,6 +144,10 @@ Route::group([
     Route::resource('footer-social', FooterSocialController::class);
 
 
-    
+    /*** Settings */
+    Route::get('settings', SettingController::class)->name('settings.index');
 
+    Route::resource('general-setting', GeneralSettingController::class);
+
+    Route::resource('seo-setting', SEOSettingController::class);
 });

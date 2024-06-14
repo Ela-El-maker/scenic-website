@@ -13,5 +13,6 @@ class SettingController extends Controller
     public function __invoke(Request $request)
     {
         //
+        return view('admin.setting.index');
     }
 }
